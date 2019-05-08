@@ -1,0 +1,13 @@
+{
+    "name": "konstantinkuznetsov/lazy_coder",
+    "authors": [{
+        "name": "lazyCoder",
+        "email": "konstantinkuznetsov.kh@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "lazy_coder\\": "app"
+        }
+    },
+    "require": {}
+}
