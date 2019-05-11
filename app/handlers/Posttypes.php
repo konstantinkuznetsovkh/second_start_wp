@@ -11,6 +11,8 @@ class Posttypes {
 
       //из генератора https://www.wp-hasty.com/tools/wordpress-custom-post-type-generator/
       // add_action( 'init', 'create__cpt', 0 );//это нам не нужно
+
+      add_action('init', [self::class, 'logotypes_type']);
   }
   public static function benefits_type() {
       
@@ -65,7 +67,7 @@ class Posttypes {
             'label' => __( 'Преимущества', 'lazy_coder' ),
             'description' => __( '', 'lazy_coder' ),
             'labels' => $labels,
-            'menu_icon' => 'dashicons-awards',
+            'menu_icon' => 'dashicons-megaphone',
             'supports' => array('title', 'editor'),
             'taxonomies' => array(),
             'public' => false,
@@ -83,9 +85,52 @@ class Posttypes {
             'capability_type' => 'post',
           );
           register_post_type( 'benefits', $args );
-
-
-
       }
+      public static function logotypes_type()	{
+		$labels = array(
+			'name' => _x('Логотипы партнеров', 'Post Type General Name', 'lazy_coder'),
+			'singular_name' => _x('Логотипы партнеров', 'Post Type Singular Name', 'lazy_coder'),
+			'menu_name' => _x('Логотипы партнеров', 'Admin Menu text', 'lazy_coder'),
+			'name_admin_bar' => _x('Логотип партнера', 'Add New on Toolbar', 'lazy_coder'),
+			'archives' => __('Архивы', 'lazy_coder'),
+			'attributes' => __('Атрибуты', 'lazy_coder'),
+			'all_items' => __('Все логотипы', 'lazy_coder'),
+			'add_new_item' => __('Добавить новый логотип', 'lazy_coder'),
+			'add_new' => __('Добавить новый', 'lazy_coder'),
+			'new_item' => __('Новый', 'lazy_coder'),
+			'edit_item' => __('Редактировать логотип', 'lazy_coder'),
+			'update_item' => __('Обновить логотип', 'lazy_coder'),
+			'view_item' => __('Посмотреть', 'lazy_coder'),
+			'view_items' => __('Посмотреть', 'lazy_coder'),
+			'search_items' => __('Поиск', 'lazy_coder'),
+			'not_found' => __('Не найдено', 'lazy_coder'),
+			'not_found_in_trash' => __('Корзина пуста', 'lazy_coder'),
+			'items_list' => __('Список преимуществ', 'lazy_coder'),
+			'items_list_navigation' => __('Навигация по списку', 'lazy_coder'),
+			'filter_items_list' => __('Фильтр', 'lazy_coder'),
+		);
+		$args = array(
+			'label' => __('Логотипы партнеров', 'lazy_coder'),
+			'description' => __('', 'lazy_coder'),
+			'labels' => $labels,
+			'menu_icon' => 'dashicons-image-filter',
+			'supports' => array('title', 'thumbnail'),
+			'taxonomies' => array(),
+			'public' => false,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'menu_position' => 5,
+			'show_in_admin_bar' => true,
+			'show_in_nav_menus' => true,
+			'can_export' => true,
+			'has_archive' => false,
+			'hierarchical' => false,
+			'exclude_from_search' => false,
+			'show_in_rest' => true,
+			'publicly_queryable' => false,
+			'capability_type' => 'post',
+		);
+		register_post_type('logotypes', $args);
+	}
 }
 ;?>

@@ -25,9 +25,10 @@ App::init();
 
         //Thumbs
         add_theme_support('post-thumbnails');
-        add_image_size( '360', 360,260);
-        add_image_size( '759', 759,380);
-        add_image_size( '377', 377,380);
+        add_image_size( '360', 360,260,true);
+        add_image_size( '759', 759,380, true);
+        add_image_size( '377', 377,380,true);
+        //чтоб подрезалось под жестко заданные размеры надо писать тру
         
         //register menu
         register_nav_menus(

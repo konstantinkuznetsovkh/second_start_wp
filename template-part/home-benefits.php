@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 // ];
 // $loop =new Wp_Query($args) ;
 //$loop =new WP_query('post_type=benefits); м ожно и так без верхнего $args
-$loop = new WP_Query('post_type=benefits&order=asc');
+$loop = new WP_Query('post_type=benefits&order=asc&order=asc');
 // post_type=benefits а дальше сортировка по алфавиту от а до я а нам надо по дате &order=asc
 
 if ($loop->have_posts()) :
