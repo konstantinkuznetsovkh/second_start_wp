@@ -2,6 +2,7 @@
 namespace lazy_coder;
 
 use lazy_coder\handlers\EnqueueScripts;
+use lazy_coder\handlers\Posttypes;
 
 class App {
 //создаем метод внутри класса App просто для проверки
@@ -15,7 +16,8 @@ public static function init() {
     EnqueueScripts::init();
     // EnqueueScripts::init();
     // EnqueueScripts::init();
-    
+    //Posttypes инициализировать нашкласс
+    Posttypes::init();
     }
 
 
