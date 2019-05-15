@@ -1,42 +1,50 @@
-<!--========== FOOTER ==========-->
 <footer class="footer">
     <!-- Links -->
     <div class="footer-seperator">
         <div class="content-lg container">
             <div class="row">
-                <div class="col-sm-2 sm-margin-b-50">
-                    <!-- List -->
-                    <ul class="list-unstyled footer-list">
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Home</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">About</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Products</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Pricing</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Clients</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Careers</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Contact</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Terms</a></li>
-                    </ul>
-                    <!-- End List -->
-                </div>
-                <div class="col-sm-4 sm-margin-b-30">
-                    <!-- List -->
-                    <ul class="list-unstyled footer-list">
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Twitter</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Facebook</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">Instagram</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="#">YouTube</a></li>
-                    </ul>
-                    <!-- End List -->
-                </div>
-                <div class="col-sm-5 sm-margin-b-30">
-                    <h2 class="color-white">Send Us A Note</h2>
-                    <input type="text" class="form-control footer-input margin-b-20" placeholder="Name" required>
-                    <input type="email" class="form-control footer-input margin-b-20" placeholder="Email" required>
-                    <input type="text" class="form-control footer-input margin-b-20" placeholder="Phone" required>
-                    <textarea class="form-control footer-input margin-b-30" rows="6" placeholder="Message"
-                        required></textarea>
-                    <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Submit</button>
-                </div>
+
+                <?php
+                $menu_footer_1 = [                  
+                    //  'menu'            => '[$footer-menu-1]',      
+                  'theme_location' => 'footer-menu-1',            
+                  'container' => 'div',        
+                  'container_class' => 'col-sm-2 sm-margin-b-50',           
+                  'menu_class' => 'list-unstyled footer-list',
+                  'menu_id' => '',
+                  'echo' => true,
+                  'fallback_cb' => '',
+                  'before' => '',
+                  'after' => '',
+                  'link_before' => '',
+                  'link_after' => '',
+                  'items_wrap' => '<ul id = "%1$s" data-type="navbar" class = "%2$s">%3$s</ul>',
+                ];
+
+                wp_nav_menu( $menu_footer_1 ); 
+
+                ?>
+                <?php
+                $menu_footer_2 = [                  
+                    //  'menu'            => '[$footer-menu-2]',      
+                  'theme_location' => 'footer-menu-2',            
+                  'container' => 'div',        
+                  'container_class' => 'col-sm-2 sm-margin-b-30',           
+                  'menu_class' => 'list-unstyled footer-list',
+                  'menu_id' => '',
+                  'echo' => true,
+                  'fallback_cb' => '',
+                  'before' => '',
+                  'after' => '',
+                  'link_before' => '',
+                  'link_after' => '',
+                  'items_wrap' => '<ul id = "%1$s" data-type="navbar" class = "%2$s">%3$s</ul>',
+                ];
+
+                wp_nav_menu( $menu_footer_2 ); 
+
+                ?>
+                <?php get_template_part('template-part/footer', 'form');?>
             </div>
             <!--// end row -->
         </div>

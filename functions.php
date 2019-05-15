@@ -34,24 +34,31 @@ App::init();
         register_nav_menus(
             array(
                 'menu-menu'    => __( 'Главное меню', 'lazy_coder' ),
-                'footer-menu' => __( 'Меню в подвале', 'twentyseventeen' ),
+                'footer-menu-1' => __( 'Меню в подвале #1', 'lazy_coder' ),
+                'footer-menu-2' => __( 'Меню в подвале #2', 'lazy_coder' ),
             )
         );
     }
 endif;
-//функция по добавлению класса в li
-function atg_menu_classes($classes, $item, $args) {
+//функция по добавлению класса в li header
+function add_class_menu_header_li($classes, $item, $args) {
     if($args->theme_location == 'menu-menu') {
       $classes[] = 'nav-item';
     }
+    //и меню в footer
+    if($args->theme_location == 'footer-menu-1'||$args->theme_location=='footer-menu-2') {
+        $classes[] = 'footer-list-item';
+      }
     return $classes;
   }
-  add_filter('nav_menu_css_class', 'atg_menu_classes', 1, 3);
+  add_filter('nav_menu_css_class', 'add_class_menu_header_li', 1, 3);
+  
   //функция которая добавляет класс к ссылкам в меню
   function add_class_to_all_menu_anchors( $atts ) {
-    $atts['class'] = 'nav-item-child nav-item-hover';
+    $atts['class'] = 'nav-item-child nav-item-hover';    
  
     return $atts;
+
 }
 add_filter( 'nav_menu_link_attributes', 'add_class_to_all_menu_anchors', 10 );
 //фильтр and function для присвоения класса активноу ли
@@ -62,5 +69,22 @@ add_filter( 'nav_menu_link_attributes', 'add_class_to_all_menu_anchors', 10 );
 //     return $classes;
 //     }
 //     add_filter('nav_menu_css_class', ' artbt_filter_current_item_menu_header' );
+
+//функция по добавлению класса в li footer 
+// function add_class_menu_footer_li($classes, $item, $args) {
+//     if($args->theme_location == 'footer-menu-1'||$args->theme_location=='footer-menu-2') {
+//       $classes[] = 'footer-list-item';
+//     }
+//     return $classes;
+//   }
+//   add_filter('nav_menu_css_class', 'add_class_menu_footer_li', 1, 3);
+
+  //добавление класса к а в li
+//   function add_class_menu_footer_li_a( $arrs ) {
+    
+//       $arrs['class'] = 'footer-list-link';    
+//       return $arrs;
+//     }
+//     add_filter( 'nav_menu_link_attributes', 'add_class_menu_footer_li_a', 9 );
 
 ;?>

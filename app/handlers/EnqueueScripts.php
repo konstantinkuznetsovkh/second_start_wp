@@ -44,16 +44,17 @@ class EnqueueScripts {
 		wp_enqueue_script('component-wow', get_template_directory_uri() . '/js/components/wow.min.js', 'jquery', '', true);
 		wp_enqueue_script('swiper', get_template_directory_uri() . '/js/components/swiper.min.js', 'jquery', '', true);
 		wp_enqueue_script('masonry', get_template_directory_uri() . '/js/components/masonry.min.js', 'jquery', '', true);
+		wp_enqueue_script('form-gmail', get_template_directory_uri() . '/js/form.js', 'jquery', '', true);
 
 		if (is_singular() && comments_open() && get_option('thread_comments')) {
 			wp_enqueue_script('comment-reply');
 		}
 
-		// Enqueue ajax url
-		// wp_localize_script('masonry', 'myajax',
-		// 	array(
-		// 		'url' => admin_url('admin-ajax.php')
-		// 	)
-		// );
+		// Enqueue ajax url эта конструкция и подключает наш функционал с работой аджакс инам необходимо указать эту ссылку в post(myajax.url)
+		wp_localize_script('form-gmail', 'myajax',
+			array(
+				'url' => admin_url('admin-ajax.php')
+			)
+		);
 	}
 }
