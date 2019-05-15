@@ -2,9 +2,6 @@
 if (!defined('ABSPATH')) {
 	die();
 };
-/************
-*Template name:О сайте
- */
 
 get_header();
 ?>
